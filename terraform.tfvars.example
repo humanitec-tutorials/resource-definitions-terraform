@@ -1,0 +1,37 @@
+# Change this file name to terraform.tfstate if you want to change inputs.
+# Careful not to commit unencrypted secrets to the repository!
+
+## GLOBAL CONFIG
+
+humanitec_organization = "happy-corp"
+
+## APP CONFIG
+
+app_name = "jaunty-app"
+
+## RESOURCE DEFINITIONS CONFIG
+
+db_static_driver_inputs = {
+    secrets = {
+      username : "mrdeveloper",
+      password : "unguessablepassword"
+
+    },
+    values = {
+      name : "jovialdb",
+      host : "grinparadise",
+      port : 3306
+    }
+  }
+
+s3_static_driver_inputs = {
+    secrets = {
+      aws_access_key_id : "ULTRA-SECRET",
+      aws_secret_access_key : "EVEN-MORE-SECRET"
+
+    },
+    values = {
+      bucket : "bucket-of-joy",
+      region : "eu-west-1"
+    }
+  }

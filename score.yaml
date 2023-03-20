@@ -1,0 +1,26 @@
+apiVersion: score.dev/v1b1
+metadata:
+  name: backend
+containers:
+  backend:
+    image: alpine
+    command: ["/bin/sh"]
+    args: ["-c", "sleep 5; while true; do echo : Mocking connection to DB with $${CONNECTION_STRING} and S3 bucket $${S3_BUCKET_NAME} on region $${S3_BUCKET_REGION}; sleep 10; done"]
+    variables:
+      CONNECTION_STRING: jdbc:mariadb://${resources.db.host}:${resources.db.port}/fi?user=${resources.db.username}&password=${resources.db.password}
+      S3_BUCKET_NAME: ${resources.storage.bucket}
+      S3_BUCKET_REGION: ${resources.storage.region} 
+resources:
+  db:
+    type: mariadb
+    properties:
+      host:
+      port:
+      name:
+      username:
+      password:
+  storage:
+    type: s3
+    properties:
+      bucket:
+      region:
