@@ -49,7 +49,7 @@ This is an overview of all the Terraform files we will be using in this tutorial
 
 This file is used to configure the [Humanitec Provider](https://registry.terraform.io/providers/humanitec/humanitec/latest/docs):
 
-```json
+```hcl
 provider "humanitec" {
    org_id = var.humanitec_organization
 }
@@ -69,7 +69,7 @@ terraform {
 
 This file defines everything that will be deployed by terraform:
 
-```json
+```hcl
 ### Application configuration ###
 # Used to create an application
 
@@ -129,7 +129,7 @@ Our terraform code creates the following:
 
 All of the configuration is defined here (except for the Humanitec token which will be defined as an environment variable). 
 
-```json
+```hcl
 ### REQUIRED ###
 
 ### Humanitec Configuration Variables ###
@@ -212,7 +212,7 @@ variable "s3_static_driver_inputs" {
 
 ### terraform.tfvars.example
 
-```json
+```hcl
 ## GLOBAL CONFIG
 
 humanitec_organization = "happy-corp"
